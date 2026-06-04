@@ -1,0 +1,200 @@
+/* src/styles/Challan.css */
+.challan-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1400px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.challan-container .header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.challan-container .institute-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.challan-container .institute-address {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.challan-container .challan-title {
+  font-size: 22px;
+  color: #2c3e50;
+  background: #e9ecef;
+  padding: 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.challan-copies {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.challan {
+  flex: 1;
+  min-width: 300px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.challan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.copy-header {
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.copy-label {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bank-copy .copy-label {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.student-copy .copy-label {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.institute-copy .copy-label {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.detail-value {
+  color: #212529;
+}
+
+.challan-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  box-shadow: 0 0 0 1px #dee2e6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.challan-container table th {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border: 1px solid #dee2e6;
+}
+
+.challan-container table td {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+}
+
+.total-row {
+  font-weight: 700;
+  background-color: #f8f9fa;
+}
+
+.amount-words {
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  margin: 15px 0;
+  font-size: 14px;
+  border-left: 3px solid #2c3e50;
+}
+
+.amount-label {
+  font-weight: 600;
+  margin-right: 5px;
+  color: #495057;
+}
+
+.note {
+  font-size: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border-left: 3px solid #6c757d;
+  margin-top: 15px;
+}
+
+.challan-container .footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.download-challan-btn {
+  margin: 10px auto;
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.download-challan-btn:hover {
+  background: #1a252f;
+}
+
+.download-challan-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
