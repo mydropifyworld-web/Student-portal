@@ -42,7 +42,7 @@ const StripeCheckoutForm = ({
         };
 
         const response = await axios.post(
-          'https://student-portal-production-7307.up.railway.app/api/admission/create-payment-intent',
+          'https://student-portal-5kcj.onrender.com/api/admission/create-payment-intent',
           { amount: courseFee, currency: 'pkr' },
           config
         );
@@ -92,7 +92,7 @@ const StripeCheckoutForm = ({
         };
 
         await axios.post(
-          'https://student-portal-production-7307.up.railway.app/api/admission/confirm-payment',
+          'https://student-portal-5kcj.onrender.com/api/admission/confirm-payment',
           { paymentIntentId: paymentIntent.id },
           config
         );
@@ -241,7 +241,7 @@ useEffect(() => {
       };
       
       const res = await axios.get(
-        `https://student-portal-production-7307.up.railway.app/api/admission/payment-status/${user._id}`,
+        `https://student-portal-5kcj.onrender.com/api/admission/payment-status/${user._id}`,
         config
       );
       
@@ -282,7 +282,7 @@ useEffect(() => {
           }
         };
 
-        const res = await axios.get('https://student-portal-production-7307.up.railway.app/api/auth/user', config);
+        const res = await axios.get('https://student-portal-5kcj.onrender.com/api/auth/user', config);
         setUser(res.data);
         
         // Redirect to dashboard if admission form is already submitted
@@ -460,11 +460,11 @@ useEffect(() => {
         }
       };
 
-      await axios.post('https://student-portal-production-7307.up.railway.app/api/admission/submit', submissionData, config);
+      await axios.post('https://student-portal-5kcj.onrender.com/api/admission/submit', submissionData, config);
       
       // Send email with admission form details
       try {
-        await axios.post('https://student-portal-production-7307.up.railway.app/api/email/send-admission', {
+        await axios.post('https://student-portal-5kcj.onrender.com/api/email/send-admission', {
           email: formData.personalDetails.email,
           formData: formDataWithMainCategory,
           courseFee: courseFee

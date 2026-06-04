@@ -21,7 +21,7 @@ const StripePaymentForm = ({ amount, onSuccess, onCancel }) => {
     const createPaymentIntent = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('https://student-portal-production-7307.up.railway.app/api/auth/create-payment-intent', {
+        const response = await fetch('https://student-portal-5kcj.onrender.com/api/auth/create-payment-intent', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

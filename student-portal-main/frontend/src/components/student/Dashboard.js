@@ -46,7 +46,7 @@ const Dashboard = () => {
           }
         };
 
-        const res = await axios.get('https://student-portal-production-7307.up.railway.app/api/auth/user', config);
+        const res = await axios.get('https://student-portal-5kcj.onrender.com/api/auth/user', config);
         setUser(res.data);
         
         // Redirect to admission form if not submitted
@@ -59,7 +59,7 @@ const Dashboard = () => {
         
 
         // Fetch attendance data
-        const attendanceRes = await axios.get('https://student-portal-production-7307.up.railway.app/api/attendance/student/summary', config);
+        const attendanceRes = await axios.get('https://student-portal-5kcj.onrender.com/api/attendance/student/summary', config);
         setAttendanceData(attendanceRes.data);
       } catch (err) {
         localStorage.removeItem('token');

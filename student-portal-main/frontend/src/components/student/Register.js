@@ -29,7 +29,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post('https://student-portal-production-7307.up.railway.app/api/auth/register', {
+      const res = await axios.post('https://student-portal-5kcj.onrender.com/api/auth/register', {
         name,
         email,
         password

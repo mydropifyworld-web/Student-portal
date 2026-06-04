@@ -18,7 +18,7 @@ const Assignments = () => {
   const fetchAssignments = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('https://student-portal-production-7307.up.railway.app/api/assignments/student/assignments', {
+      const res = await axios.get('https://student-portal-5kcj.onrender.com/api/assignments/student/assignments', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAssignments(res.data);
@@ -28,7 +28,7 @@ const Assignments = () => {
       for (const assignment of res.data) {
         try {
           const statusRes = await axios.get(
-            `https://student-portal-production-7307.up.railway.app/api/assignments/student/submission/${assignment._id}`,
+            `https://student-portal-5kcj.onrender.com/api/assignments/student/submission/${assignment._id}`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           statuses[assignment._id] = statusRes.data;
@@ -64,7 +64,7 @@ const Assignments = () => {
       formData.append('file', file);
 
       await axios.post(
-        `https://student-portal-production-7307.up.railway.app/api/assignments/student/submit/${selectedAssignment._id}`,
+        `https://student-portal-5kcj.onrender.com/api/assignments/student/submit/${selectedAssignment._id}`,
         formData,
         {
           headers: {
@@ -118,7 +118,7 @@ const Assignments = () => {
                   <h3>{assignment.title}</h3>
                   {assignment.file && (
                     <a 
-                      href={`https://student-portal-production-7307.up.railway.app/uploads/assignments/${assignment.file}`}
+                      href={`https://student-portal-5kcj.onrender.com/uploads/assignments/${assignment.file}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="download-btn"

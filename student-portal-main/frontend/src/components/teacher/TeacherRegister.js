@@ -30,7 +30,7 @@ const TeacherRegister = () => {
     }
 
     try {
-      const res = await axios.post('https://student-portal-production-7307.up.railway.app/api/auth/teacher-register', {
+      const res = await axios.post('https://student-portal-5kcj.onrender.com/api/auth/teacher-register', {
         name,
         email,
         password,

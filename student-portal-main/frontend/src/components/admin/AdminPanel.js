@@ -51,8 +51,8 @@ const AdminPanel = () => {
 
         // Fetch both students and teachers
         const [usersRes, teachersRes] = await Promise.all([
-          axios.get('https://student-portal-production-7307.up.railway.app/api/admin/users', config),
-          axios.get('https://student-portal-production-7307.up.railway.app/api/admin/teachers', config)
+          axios.get('https://student-portal-5kcj.onrender.com/api/admin/users', config),
+          axios.get('https://student-portal-5kcj.onrender.com/api/admin/teachers', config)
         ]);
 
         setUsers(usersRes.data);
@@ -130,7 +130,7 @@ const AdminPanel = () => {
         }
       };
 
-      const res = await axios.get(`https://student-portal-production-7307.up.railway.app/api/admission/${userId}`, config);
+      const res = await axios.get(`https://student-portal-5kcj.onrender.com/api/admission/${userId}`, config);
       setSelectedUser({ id: userId, formData: res.data });
       setShowModal(true);
     } catch (err) {
@@ -148,7 +148,7 @@ const AdminPanel = () => {
       };
 
       const res = await axios.put(
-        `https://student-portal-production-7307.up.railway.app/api/admin/approve/${userId}`,
+        `https://student-portal-5kcj.onrender.com/api/admin/approve/${userId}`,
         {},
         config
       );
@@ -172,7 +172,7 @@ const AdminPanel = () => {
       };
 
       const res = await axios.put(
-        `https://student-portal-production-7307.up.railway.app/api/admin/approve-teacher/${teacherId}`,
+        `https://student-portal-5kcj.onrender.com/api/admin/approve-teacher/${teacherId}`,
         {},
         config
       );
@@ -200,7 +200,7 @@ const AdminPanel = () => {
       };
 
       await axios.delete(
-        `https://student-portal-production-7307.up.railway.app/api/admin/delete-user/${userId}`,
+        `https://student-portal-5kcj.onrender.com/api/admin/delete-user/${userId}`,
         config
       );
 
@@ -232,7 +232,7 @@ const AdminPanel = () => {
       };
 
       await axios.delete(
-        `https://student-portal-production-7307.up.railway.app/api/admin/delete-teacher/${teacherId}`,
+        `https://student-portal-5kcj.onrender.com/api/admin/delete-teacher/${teacherId}`,
         config
       );
 
@@ -289,7 +289,7 @@ const AdminPanel = () => {
       <div style={{ marginBottom: '10px' }}>
         <strong>{label}: </strong>
         <a 
-          href={`https://student-portal-production-7307.up.railway.app/${filePath}`} 
+          href={`https://student-portal-5kcj.onrender.com/${filePath}`} 
           target="_blank" 
           rel="noopener noreferrer"
           style={{ 
@@ -316,7 +316,7 @@ const AdminPanel = () => {
           return (
             <div key={index} style={{ marginLeft: '20px', marginTop: '5px' }}>
               <a 
-                href={`https://student-portal-production-7307.up.railway.app/${filePath}`} 
+                href={`https://student-portal-5kcj.onrender.com/${filePath}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={{ color: '#007bff', textDecoration: 'underline' }}
@@ -341,7 +341,7 @@ const AdminPanel = () => {
       };
 
       const res = await axios.put(
-        `https://student-portal-production-7307.up.railway.app/api/admission/verify-payment/${userId}`,
+        `https://student-portal-5kcj.onrender.com/api/admission/verify-payment/${userId}`,
         {},
         config
       );

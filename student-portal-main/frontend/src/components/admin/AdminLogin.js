@@ -17,7 +17,7 @@ const AdminLogin = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://student-portal-production-7307.up.railway.app/api/auth/admin-login', {
+      const res = await axios.post('https://student-portal-5kcj.onrender.com/api/auth/admin-login', {
         email,
         password
       });

@@ -27,7 +27,7 @@ const AssignmentManager = ({ teacherCourse }) => {
   const fetchAssignments = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('https://student-portal-production-7307.up.railway.app/api/assignments/teacher/assignments', {
+      const res = await axios.get('https://student-portal-5kcj.onrender.com/api/assignments/teacher/assignments', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAssignments(res.data);
@@ -57,7 +57,7 @@ const AssignmentManager = ({ teacherCourse }) => {
         if (formData[key]) data.append(key, formData[key]);
       });
 
-      await axios.post('https://student-portal-production-7307.up.railway.app/api/assignments/create', data, {
+      await axios.post('https://student-portal-5kcj.onrender.com/api/assignments/create', data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
@@ -86,7 +86,7 @@ const AssignmentManager = ({ teacherCourse }) => {
   const viewAssignmentDetails = async (assignmentId) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get(`https://student-portal-production-7307.up.railway.app/api/assignments/teacher/assignments/${assignmentId}`, {
+      const res = await axios.get(`https://student-portal-5kcj.onrender.com/api/assignments/teacher/assignments/${assignmentId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSelectedAssignment(res.data.assignment);
@@ -100,7 +100,7 @@ const AssignmentManager = ({ teacherCourse }) => {
   const gradeAssignment = async (studentId, marks, feedback) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`https://student-portal-production-7307.up.railway.app/api/assignments/teacher/grade/${studentId}/${selectedAssignment._id}`, 
+      await axios.put(`https://student-portal-5kcj.onrender.com/api/assignments/teacher/grade/${studentId}/${selectedAssignment._id}`, 
         { marks, feedback },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -302,7 +302,7 @@ const StudentRow = ({ student, onGrade, maxMarks }) => {
         {student.submission ? (
           <>
             <button 
-              onClick={() => window.open(`https://student-portal-production-7307.up.railway.app/uploads/assignments/${student.submission.submissionFile}`, '_blank')}
+              onClick={() => window.open(`https://student-portal-5kcj.onrender.com/uploads/assignments/${student.submission.submissionFile}`, '_blank')}
               className="btn btn-sm btn-info"
             >
               View Submission

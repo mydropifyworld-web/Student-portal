@@ -19,7 +19,7 @@ const MyProfile = () => {
           }
         };
 
-        const res = await axios.get('https://student-portal-production-7307.up.railway.app/api/auth/user', config);
+        const res = await axios.get('https://student-portal-5kcj.onrender.com/api/auth/user', config);
         setUserData(res.data);
         setLoading(false);
       } catch (err) {

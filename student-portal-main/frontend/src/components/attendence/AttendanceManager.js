@@ -1,5 +1,5 @@
 // components/AttendanceManager.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { format, parseISO } from 'date-fns';
 
@@ -15,12 +15,7 @@ const AttendanceManager = ({ teacher, students }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
 
-  useEffect(() => {
-    fetchAttendanceData();
-    fetchAvailableDates();
-  }, [selectedDate]);
-
-  const fetchAttendanceData = async () => {
+  const fetchAttendanceData = useCallback(async () => {
     try {
       const token = localStorage.getItem('token');
       const config = {
@@ -59,9 +54,9 @@ const AttendanceManager = ({ teacher, students }) => {
       console.error('Error fetching attendance data:', err);
       setMessage('Error loading attendance data');
     }
-  };
+  }, [selectedDate, students]);
 
-  const fetchAvailableDates = async () => {
+  const fetchAvailableDates = useCallback(async () => {
     try {
       const token = localStorage.getItem('token');
       const config = {
@@ -75,7 +70,7 @@ const AttendanceManager = ({ teacher, students }) => {
     } catch (err) {
       console.error('Error fetching available dates:', err);
     }
-  };
+  }, []);
 
   const fetchStudentAttendanceHistory = async (studentId) => {
     setIsLoadingHistory(true);
@@ -117,13 +112,7 @@ const AttendanceManager = ({ teacher, students }) => {
     setStudentAttendanceHistory([]);
   };
 
-  const handleHistoryStatusChange = (recordId, newStatus) => {
-    setStudentAttendanceHistory(prevRecords => 
-      prevRecords.map(record => 
-        record._id === recordId ? { ...record, status: newStatus } : record
-      )
-    );
-  };
+  // Removed unused handleHistoryStatusChange function
 
   const updateStudentAttendance = async (recordId, newStatus) => {
     try {
@@ -184,7 +173,7 @@ const AttendanceManager = ({ teacher, students }) => {
         }))
       };
 
-      const res = await axios.post('https://student-portal-production-7307.up.railway.app/api/attendance/submit', payload, config);
+      await axios.post('https://student-portal-production-7307.up.railway.app/api/attendance/submit', payload, config);
       
       setMessage('Attendance submitted successfully!');
       setIsEditing(true);
@@ -228,6 +217,11 @@ const AttendanceManager = ({ teacher, students }) => {
   const getStatusText = (status) => {
     return status.charAt(0).toUpperCase() + status.slice(1);
   };
+
+  useEffect(() => {
+    fetchAttendanceData();
+    fetchAvailableDates();
+  }, [selectedDate, fetchAttendanceData, fetchAvailableDates]);
 
   return (
     <div className="attendance-manager">

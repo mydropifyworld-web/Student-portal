@@ -24,7 +24,7 @@ const VerifyEmail = () => {
     setError('');
 
     try {
-      const res = await axios.post('https://student-portal-production-7307.up.railway.app/api/auth/verify-email', {
+      const res = await axios.post('https://student-portal-5kcj.onrender.com/api/auth/verify-email', {
         code: verificationCode // Sending 6-digit code
       });
 
@@ -50,7 +50,7 @@ setSuccess(res.data.message);
 
   const resendVerification = async () => {
     try {
-      await axios.post('https://student-portal-production-7307.up.railway.app/api/auth/resend-verification', {
+      await axios.post('https://student-portal-5kcj.onrender.com/api/auth/resend-verification', {
         email
       });
       setSuccess('Verification email sent successfully!');

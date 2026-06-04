@@ -46,11 +46,11 @@ const TeacherDashboard = () => {
         };
 
         // Get teacher's students
-        const studentsRes = await axios.get('https://student-portal-production-7307.up.railway.app/api/teacher/students', config);
+        const studentsRes = await axios.get('https://student-portal-5kcj.onrender.com/api/teacher/students', config);
         setStudents(studentsRes.data);
 
         // Get teacher info
-        const userRes = await axios.get('https://student-portal-production-7307.up.railway.app/api/auth/teacher', config);
+        const userRes = await axios.get('https://student-portal-5kcj.onrender.com/api/auth/teacher', config);
         setUser(userRes.data);
       } catch (err) {
         setError(err.response?.data?.message || 'Error fetching data');
